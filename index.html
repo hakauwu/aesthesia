@@ -22,12 +22,6 @@
             
         }
 
-
-        .footer {
-            background-image: url(footer.png); /* Thay bằng URL ảnh của bạn */
-            background-size: cover;
-            background-position:bottom;
-            height: 100px; /* Chiều cao của footer */
         }
         
         h1 {
@@ -137,7 +131,7 @@
     
     <div class="result" id="result"></div>
     <br>
-    <button class="buttons" onclick="resetResult()">Reset</button> <!-- Nút Reset -->
+    <button class="buttons" onclick="resetResult()">Reset</button> 
 
     <script>
         function handleClick() {
@@ -152,10 +146,9 @@
         "Bạn đã nhận được hai chiếc sticker tự chọn!!",//14
     ];
 
-    // Tỉ lệ tương ứng: 1%, 10%, 30%, 5%, 40%, 14%
-    const probabilities = [1, 10, 20, 5, 20, 10, 20, 15];
-    const totalProbability = probabilities.reduce((sum, current) => sum + current, 0); // Tổng xác suất là 100
-    const randomNum = Math.random() * totalProbability; // Random số từ 0 đến 100
+    const probabilities = [1, 10, 20, 5, 20, 10, 20, 14];
+    const totalProbability = probabilities.reduce((sum, current) => sum + current, 0); 
+    const randomNum = Math.random() * totalProbability; 
 
     let cumulativeProbability = 0;
     let randomIndex = -1;
@@ -173,7 +166,6 @@
 
     resultElement.textContent = selectedMessage;
 
-    // Reset tất cả class trước khi thêm mới
     resultElement.className = 'result';
 
     if (randomIndex === 0) {
@@ -212,8 +204,8 @@
 
 function resetResult() {
     const resultElement = document.getElementById('result');
-    resultElement.textContent = ''; // Xóa nội dung kết quả
-    resultElement.className = 'result'; // Xóa tất cả các class đã thêm
+    resultElement.textContent = ''; 
+    resultElement.className = 'result'; 
 }
 
     </script>

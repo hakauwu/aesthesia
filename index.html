@@ -74,24 +74,24 @@
         }
 
         .congrats {
-            color: #ff4081;
+            color: #e0408b;
             font-size: 35px;
             animation: congratsAnimation 0.5s ease;
         }
 
-        .again {
-            color: rgb(0, 0, 0);
+        .three {
+            color: rgb(241, 156, 29);
             font-size: 35px;
             animation: congratsAnimation 0.5s ease;
         }
 
-        .smile {
+        .ten {
             color: rgb(58, 116, 170);
             font-size: 35px;
             animation: congratsAnimation 0.5s ease;
         }
 
-        .share {
+        .sticker {
             color: rgb(46, 155, 64);
             font-size: 35px;
             animation: congratsAnimation 0.5s ease;
@@ -105,7 +105,20 @@
 
         .oops {
             color: red;
-            font-size: 40px;
+            font-size: 35px;
+            animation: congratsAnimation 0.5s ease;
+        }
+        
+        .candy {
+            color: rgb(74, 180, 199);
+            font-size: 35px;
+            animation: congratsAnimation 0.5s ease;
+        }
+
+        
+        .five {
+            color: rgb(173, 82, 173);
+            font-size: 35px;
             animation: congratsAnimation 0.5s ease;
         }
         
@@ -172,11 +185,11 @@
     }
 
     if (randomIndex === 2) {
-        resultElement.classList.add('share');
+        resultElement.classList.add('three');
     }
 
     if (randomIndex === 3) {
-        resultElement.classList.add('smile');
+        resultElement.classList.add('ten');
     }
 
     if (randomIndex === 4) {
@@ -184,7 +197,16 @@
     }
 
     if (randomIndex === 5) {
-        resultElement.classList.add('again');
+        resultElement.classList.add('five');
+    }
+    
+    if (randomIndex === 6) {
+        resultElement.classList.add('candy');
+    }
+
+    
+    if (randomIndex === 7) {
+        resultElement.classList.add('sticker');
     }
 }
 

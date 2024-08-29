@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthesia</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+            background-image: url(./Illustration4.jpeg);
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            
+        }
+
+
+        .footer {
+            background-image: url(footer.png); /* Thay bằng URL ảnh của bạn */
+            background-size: cover;
+            background-position:bottom;
+            height: 100px; /* Chiều cao của footer */
+        }
+        
+        h1 {
+            color: #ff4081;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            font-weight: bolder;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 30px;
+        }
+
+        .button:hover {
+            background-color: #e91e63;
+        }
+
+        .buttons {
+            background-color: #ff4081;
+            font-weight: bolder;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 30px;
+        }
+
+        .buttons:hover {
+            background-color: #e91e63;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .congrats {
+            color: #ff4081;
+            font-size: 35px;
+            animation: congratsAnimation 0.5s ease;
+        }
+
+        .again {
+            color: rgb(0, 0, 0);
+            font-size: 35px;
+            animation: congratsAnimation 0.5s ease;
+        }
+
+        .smile {
+            color: rgb(58, 116, 170);
+            font-size: 35px;
+            animation: congratsAnimation 0.5s ease;
+        }
+
+        .share {
+            color: rgb(46, 155, 64);
+            font-size: 35px;
+            animation: congratsAnimation 0.5s ease;
+        }
+
+        .congrat {
+            color: rgb(116, 78, 177);
+            font-size: 35px;
+            animation: congratsAnimation 0.5s ease;
+        }
+
+        .oops {
+            color: red;
+            font-size: 40px;
+            animation: congratsAnimation 0.5s ease;
+        }
+        
+
+        @keyframes congratsAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1>Bấm "A ét" để có cơ hội nhận một ly trà sữa free!</h1>
+    <button class="button" onclick="handleClick()">A ét</button>
+    
+    <div class="result" id="result"></div>
+    <br>
+    <button class="buttons" onclick="resetResult()">Reset</button> <!-- Nút Reset -->
+
+    <script>
+        function handleClick() {
+    const messages = [
+        "Bạn đã nhận được một ly trà sữa từ A ét!!", //1
+        "Chúc bạn may mắn lần sau nhé...", //10
+        "Bạn đã nhận được voucher 3k!", //20
+        "Bạn đã nhận được voucher 10k!!", //5
+        "Bạn đã nhận được một nụ cười tới từ A ét :>",//20
+        "Bạn đã nhận được voucher 5k!",//10
+        "Bạn đã nhận được một túi kẹo!",//20
+        "Bạn đã nhận được hai chiếc sticker tự chọn!!",//14
+    ];
+
+    // Tỉ lệ tương ứng: 1%, 10%, 30%, 5%, 40%, 14%
+    const probabilities = [1, 10, 20, 5, 20, 10, 20, 15];
+    const totalProbability = probabilities.reduce((sum, current) => sum + current, 0); // Tổng xác suất là 100
+    const randomNum = Math.random() * totalProbability; // Random số từ 0 đến 100
+
+    let cumulativeProbability = 0;
+    let randomIndex = -1;
+
+    for (let i = 0; i < probabilities.length; i++) {
+        cumulativeProbability += probabilities[i];
+        if (randomNum < cumulativeProbability) {
+            randomIndex = i;
+            break;
+        }
+    }
+
+    const resultElement = document.getElementById('result');
+    const selectedMessage = messages[randomIndex];
+
+    resultElement.textContent = selectedMessage;
+
+    // Reset tất cả class trước khi thêm mới
+    resultElement.className = 'result';
+
+    if (randomIndex === 0) {
+        resultElement.classList.add('congrats');
+    }
+
+    if (randomIndex === 1) {
+        resultElement.classList.add('oops');
+    }
+
+    if (randomIndex === 2) {
+        resultElement.classList.add('share');
+    }
+
+    if (randomIndex === 3) {
+        resultElement.classList.add('smile');
+    }
+
+    if (randomIndex === 4) {
+        resultElement.classList.add('congrat');
+    }
+
+    if (randomIndex === 5) {
+        resultElement.classList.add('again');
+    }
+}
+
+function resetResult() {
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = ''; // Xóa nội dung kết quả
+    resultElement.className = 'result'; // Xóa tất cả các class đã thêm
+}
+
+    </script>
+</body>
+</html>

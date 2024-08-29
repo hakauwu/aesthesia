@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header và Footer bằng ảnh</title>
+    <style>
+        body {
+            margin: 0;
+            padding:0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        .header {
+            background-image: url(./Illustration4.png); /* Thay bằng URL ảnh của bạn */
+            background-size: cover;
+            background-position: top;
+            height: 100px; /* Chiều cao của header */
+        }
+
+        /* Footer */
+        .footer {
+            background-image: url(footer.png); /* Thay bằng URL ảnh của bạn */
+            background-size: cover;
+            background-position:bottom;
+            height: 100px; /* Chiều cao của footer */
+            position: relative;
+        }
+
+        /* Nội dung chính */
+        .content {
+            padding: 20px;
+            min-height: calc(100vh - 250px); /* Đảm bảo nội dung không đè lên header và footer */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header"></div>
+
+    <div class="content">
+        <!-- Nội dung trang web của bạn -->
+        <p>Đây là nội dung của trang web.</p>
+    </div>
+
+    <div class="footer"></div>
+
+</body>
+</html>
